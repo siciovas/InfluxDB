@@ -33,16 +33,13 @@ class InfluxClient:
 
 token = "PojpZWMCsnWL-pVgQBG3b5EiY1jdnCXGVWxqwYoPRdgceAJTMRT0KDYnCVfvAAidXgpJTNOMFGNtW_CZWHJ-eg=="
 org = "KTU"
-bucket = "DB22"
+bucket = "DB1"
 IC = InfluxClient(token,org,bucket)
 
-'''
-    Return the High Value for MSFT stock for since 1st October,2021
-'''
-query1 = 'from(bucket: "DB22")\
-|> range(start: 2022-09-01T23:30:00Z, stop: 2022-11-14T00:00:00Z)\
-|> filter(fn: (r) => r._measurement == "test")\
-|> filter(fn: (r) => r.id == "1")'
+query1 = 'from(bucket: "DB1")\
+|> range(start: 2022-09-01T23:30:00Z, stop: 2022-11-20T00:00:00Z)\
+|> filter(fn: (r) => r._measurement == "komanda2")\
+|> filter(fn: (r) => r.id == "61")'
 
 IC.query_data(query1)
 
